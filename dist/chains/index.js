@@ -16,7 +16,7 @@ var AnimaChains = (_a = {},
 function IsSupported(chain) {
     return AnimaChains[chain];
 }
-function GetChainIdByChainName(chainId) {
+function GetChainNameByChainId(chainId) {
     return EVMChains[chainId];
 }
-export default { ETH: ETH, IsSupported: IsSupported, GetChainIdByChainName: GetChainIdByChainName };
+export default { ETH: ETH, IsSupported: IsSupported, GetChainNameByChainId: GetChainNameByChainId };
