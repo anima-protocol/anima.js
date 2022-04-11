@@ -8,18 +8,18 @@ export interface DriverLicense {
   document_country: string;
   document_number: string;
   document_expiration: string;
-  front_document: string;
-  back_document: string;
+  document_front: string;
+  document_back: string;
   liveness_photo: string;
 }
 
 export const DriverLicenseIssuingRequestFields: IssuingRequestField[] = [
   {
-    name: "front_document",
+    name: "document_front",
     type: "string",
   },
   {
-    name: "back_document",
+    name: "document_back",
     type: "string",
   },
   {
@@ -54,11 +54,11 @@ export const DriverLicenseAttributes: Attribute[] = [
     type: "string",
   },
   {
-    name: "front_document",
+    name: "document_front",
     type: "file",
   },
   {
-    name: "back_document",
+    name: "document_back",
     type: "file",
   },
   {

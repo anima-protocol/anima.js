@@ -1,10 +1,10 @@
 export var ResidentPermitIssuingRequestFields = [
     {
-        name: "front_document",
+        name: "document_front",
         type: "string",
     },
     {
-        name: "back_document",
+        name: "document_back",
         type: "string",
     },
     {
@@ -42,11 +42,11 @@ export var ResidentPermitAttributes = [
         type: "string",
     },
     {
-        name: "front_document",
+        name: "document_front",
         type: "file",
     },
     {
-        name: "back_document",
+        name: "document_back",
         type: "file",
     },
     {
