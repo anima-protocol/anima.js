@@ -1,0 +1,10 @@
+"use strict";
+exports.__esModule = true;
+exports.Challenges = exports.Resources = exports.Chains = void 0;
+var index_1 = require("./resources/index");
+exports.Resources = index_1["default"];
+var index_2 = require("./chains/index");
+exports.Chains = index_2["default"];
+var index_3 = require("./challenges/index");
+exports.Challenges = index_3["default"];
+console.log("test");

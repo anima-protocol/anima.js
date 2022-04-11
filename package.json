@@ -1,0 +1,21 @@
+{
+  "name": "anima.js",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "repository": "git@github.com:anima-protocol/anima.js.git",
+  "author": "Riwan <43223332+riwanl8@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf dist; tsc"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.16.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.16.5",
+    "@babel/preset-typescript": "^7.16.5",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "moment": "^2.29.1"
+  }
+}
