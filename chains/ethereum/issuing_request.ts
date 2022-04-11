@@ -1,16 +1,16 @@
 import Resources from "../../resources/index";
+import Chains from "../index";
 
 export function IssuingRequest(specs: string, message: any): object {
   const challenge = {
     domain: {
       name: "anima",
       version: "1.0",
-      chainId: "1",
+      chainId: Chains.GetChainIdByChainName(message.owner.chain),
     },
     message: {
       ...message,
     },
-
     primaryType: "Main",
     types: {
       Main: [
