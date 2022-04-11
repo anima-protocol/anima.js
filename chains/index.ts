@@ -5,7 +5,7 @@ const AURORA = "AURORA"
 
 const EVMChains: { [key: string]: string} = {
   "1": ETH,
-  "58": BSC,
+  "56": BSC,
   "1313161554": AURORA,
 }
 

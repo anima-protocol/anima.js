@@ -5,7 +5,7 @@ var BSC = "BSC";
 var AURORA = "AURORA";
 var EVMChains = {
     "1": ETH,
-    "58": BSC,
+    "56": BSC,
     "1313161554": AURORA,
 };
 var AnimaChains = (_a = {},
