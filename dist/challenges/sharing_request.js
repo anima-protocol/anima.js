@@ -36,12 +36,11 @@ export function GetSharingRequest(specs, attributes, owner, verifier) {
         },
     };
     var challenge = {};
-    switch (owner.chain) {
-        case Chains.ETH:
-            challenge = Ethereum.SharingRequest(message, attributes);
-            break;
-        default:
-            throw "Unable to get sharing request";
+    if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
+        challenge = Ethereum.SharingRequest(message, attributes);
+    }
+    else {
+        throw "Unable to get sharing request";
     }
     return JSON.stringify(challenge);
 }

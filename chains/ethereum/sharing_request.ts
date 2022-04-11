@@ -1,4 +1,5 @@
 import { Attribute } from "../../types";
+import Chains from "../index";
 
 export function SharingRequest(
   message: any,
@@ -16,7 +17,7 @@ export function SharingRequest(
     domain: {
       name: "anima",
       version: "1.0",
-      chainId: "1",
+      chainId: Chains.GetChainIdByChainName(message.owner.chain),
     },
     message: {
       ...message,

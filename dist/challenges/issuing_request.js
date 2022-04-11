@@ -32,12 +32,11 @@ export function GetIssuingRequest(specs, fields, owner, issuer) {
         },
     };
     var challenge = {};
-    switch (owner.chain) {
-        case Chains.ETH:
-            challenge = Ethereum.IssuingRequest(specs, message);
-            break;
-        default:
-            throw "Unable to get issuing request";
+    if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
+        challenge = Ethereum.IssuingRequest(specs, message);
+    }
+    else {
+        throw "Unable to get issuing request";
     }
     return JSON.stringify(challenge);
 }
