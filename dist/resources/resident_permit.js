@@ -7,10 +7,6 @@ export var ResidentPermitIssuingRequestFields = [
         name: "document_back",
         type: "string",
     },
-    {
-        name: "liveness_photo",
-        type: "string",
-    },
 ];
 export var ResidentPermitAttributes = [
     {
@@ -47,10 +43,6 @@ export var ResidentPermitAttributes = [
     },
     {
         name: "document_back",
-        type: "file",
-    },
-    {
-        name: "liveness_photo",
         type: "file",
     },
 ];

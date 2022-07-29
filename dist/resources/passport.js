@@ -2,11 +2,7 @@ export var PassportIssuingRequestFields = [
     {
         name: "passport_page",
         type: "string",
-    },
-    {
-        name: "liveness_photo",
-        type: "string",
-    },
+    }
 ];
 export var PassportAttributes = [
     {
@@ -40,9 +36,5 @@ export var PassportAttributes = [
     {
         name: "passport_page",
         type: "file",
-    },
-    {
-        name: "liveness_photo",
-        type: "file",
-    },
+    }
 ];

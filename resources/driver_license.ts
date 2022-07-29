@@ -21,11 +21,7 @@ export const DriverLicenseIssuingRequestFields: IssuingRequestField[] = [
   {
     name: "document_back",
     type: "string",
-  },
-  {
-    name: "liveness_photo",
-    type: "string",
-  },
+  }
 ];
 
 export const DriverLicenseAttributes: Attribute[] = [
@@ -60,9 +56,5 @@ export const DriverLicenseAttributes: Attribute[] = [
   {
     name: "document_back",
     type: "file",
-  },
-  {
-    name: "liveness_photo",
-    type: "file",
-  },
+  }
 ];

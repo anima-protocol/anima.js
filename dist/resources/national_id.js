@@ -6,11 +6,7 @@ export var NationalIdIssuingRequestFields = [
     {
         name: "document_back",
         type: "string",
-    },
-    {
-        name: "liveness_photo",
-        type: "string",
-    },
+    }
 ];
 export var NationalIdAttributes = [
     {
@@ -48,9 +44,5 @@ export var NationalIdAttributes = [
     {
         name: "document_back",
         type: "file",
-    },
-    {
-        name: "liveness_photo",
-        type: "file",
-    },
+    }
 ];

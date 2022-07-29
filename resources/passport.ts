@@ -16,11 +16,7 @@ export const PassportIssuingRequestFields: IssuingRequestField[] = [
   {
     name: "passport_page",
     type: "string",
-  },
-  {
-    name: "liveness_photo",
-    type: "string",
-  },
+  }
 ];
 
 export const PassportAttributes: Attribute[] = [
@@ -55,9 +51,5 @@ export const PassportAttributes: Attribute[] = [
   {
     name: "passport_page",
     type: "file",
-  },
-  {
-    name: "liveness_photo",
-    type: "file",
-  },
+  }
 ];

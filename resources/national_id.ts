@@ -21,11 +21,7 @@ export const NationalIdIssuingRequestFields: IssuingRequestField[] = [
   {
     name: "document_back",
     type: "string",
-  },
-  {
-    name: "liveness_photo",
-    type: "string",
-  },
+  }
 ];
 
 export const NationalIdAttributes: Attribute[] = [
@@ -64,9 +60,5 @@ export const NationalIdAttributes: Attribute[] = [
   {
     name: "document_back",
     type: "file",
-  },
-  {
-    name: "liveness_photo",
-    type: "file",
-  },
+  }
 ];

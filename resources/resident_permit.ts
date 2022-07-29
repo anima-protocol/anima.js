@@ -10,7 +10,6 @@ export interface ResidentPermit {
   document_expiration: string;
   document_front: string;
   document_back: string;
-  liveness_photo: string;
 }
 
 export const ResidentPermitIssuingRequestFields: IssuingRequestField[] = [
@@ -20,10 +19,6 @@ export const ResidentPermitIssuingRequestFields: IssuingRequestField[] = [
   },
   {
     name: "document_back",
-    type: "string",
-  },
-  {
-    name: "liveness_photo",
     type: "string",
   },
 ];
@@ -63,10 +58,6 @@ export const ResidentPermitAttributes: Attribute[] = [
   },
   {
     name: "document_back",
-    type: "file",
-  },
-  {
-    name: "liveness_photo",
     type: "file",
   },
 ];
