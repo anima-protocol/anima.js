@@ -9,12 +9,12 @@ export interface Passport {
   document_number: string;
   document_expiration: string;
   passport_page: string;
-  liveness_photo: string;
+  original_passport_page: string;
 }
 
 export const PassportIssuingRequestFields: IssuingRequestField[] = [
   {
-    name: "passport_page",
+    name: "original_passport_page",
     type: "string",
   }
 ];
@@ -50,6 +50,10 @@ export const PassportAttributes: Attribute[] = [
   },
   {
     name: "passport_page",
+    type: "file",
+  },
+  {
+    name: "original_passport_page",
     type: "file",
   }
 ];

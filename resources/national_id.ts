@@ -10,16 +10,17 @@ export interface NationalId {
   document_expiration: string;
   document_front: string;
   document_back: string;
-  liveness_photo: string;
+  original_document_front: string;
+  original_document_back: string;
 }
 
 export const NationalIdIssuingRequestFields: IssuingRequestField[] = [
   {
-    name: "document_front",
+    name: "original_document_front",
     type: "string",
   },
   {
-    name: "document_back",
+    name: "original_document_back",
     type: "string",
   }
 ];
@@ -58,7 +59,15 @@ export const NationalIdAttributes: Attribute[] = [
     type: "file",
   },
   {
+    name: "original_document_front",
+    type: "file",
+  },
+  {
     name: "document_back",
+    type: "file",
+  },
+  {
+    name: "original_document_back",
     type: "file",
   }
 ];

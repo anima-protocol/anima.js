@@ -42,5 +42,10 @@ export function IssuingRequest(specs: string, message: any): object {
       ],
     },
   };
+
+  if (message?.owner?.public_key_encryption) {
+    (challenge.types.Owner as any).public_key_encryption = message.owner.public_key_encryption;
+  }
+
   return challenge;
 }

@@ -1,10 +1,10 @@
 export var DriverLicenseIssuingRequestFields = [
     {
-        name: "document_front",
+        name: "original_document_front",
         type: "string",
     },
     {
-        name: "document_back",
+        name: "original_document_back",
         type: "string",
     }
 ];
@@ -39,6 +39,14 @@ export var DriverLicenseAttributes = [
     },
     {
         name: "document_back",
+        type: "file",
+    },
+    {
+        name: "original_document_front",
+        type: "file",
+    },
+    {
+        name: "original_document_back",
         type: "file",
     }
 ];
