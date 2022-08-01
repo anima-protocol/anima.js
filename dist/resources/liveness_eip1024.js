@@ -5,7 +5,7 @@ export var LivenessEIP1024IssuingRequestFields = [
     },
     {
         name: "audit_trail",
-        type: "string[]",
+        type: "string",
     }
 ];
 export var LivenessEIP1024Attributes = [
@@ -15,6 +15,6 @@ export var LivenessEIP1024Attributes = [
     },
     {
         name: "audit_trail",
-        type: "string[]",
+        type: "string",
     }
 ];
