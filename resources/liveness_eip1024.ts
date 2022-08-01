@@ -2,7 +2,7 @@ import { IssuingRequestField, Attribute } from "../types";
 
 export interface LivenessEIP1024 {
   face_vector: string
-  audit_trail: string[]
+  audit_trail: string
 }
 
 export const LivenessEIP1024IssuingRequestFields: IssuingRequestField[] = [
@@ -12,7 +12,7 @@ export const LivenessEIP1024IssuingRequestFields: IssuingRequestField[] = [
   },
   {
     name: "audit_trail",
-    type: "string[]",
+    type: "string",
   }
 ];
 
@@ -23,6 +23,6 @@ export const LivenessEIP1024Attributes: Attribute[] = [
   },
   {
     name: "audit_trail",
-    type: "string[]",
+    type: "string",
   }
 ];
