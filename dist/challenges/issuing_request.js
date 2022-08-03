@@ -106,7 +106,7 @@ export function GetLivenessIssuingRequestEIP712(specs, fields, owner, issuer) {
     };
     var challenge = {};
     if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
-        challenge = Ethereum.IssuingRequest(specs, message);
+        challenge = Ethereum.IssuingRequest(specs, message, false);
     }
     else {
         throw "Unable to get issuing request";
