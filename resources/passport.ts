@@ -16,7 +16,7 @@ export const PassportIssuingRequestFields: IssuingRequestField[] = [
   {
     name: "original_passport_page",
     type: "string",
-  }
+  },
 ];
 
 export const PassportAttributes: Attribute[] = [
@@ -55,5 +55,17 @@ export const PassportAttributes: Attribute[] = [
   {
     name: "original_passport_page",
     type: "file",
-  }
+  },
+  {
+    name: "face",
+    type: "file",
+  },
+  {
+    name: "face_vector",
+    type: "file",
+  },
+  {
+    name: "audit_trail",
+    type: "file",
+  },
 ];

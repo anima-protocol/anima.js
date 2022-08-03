@@ -22,7 +22,7 @@ export const DriverLicenseIssuingRequestFields: IssuingRequestField[] = [
   {
     name: "original_document_back",
     type: "string",
-  }
+  },
 ];
 
 export const DriverLicenseAttributes: Attribute[] = [
@@ -65,5 +65,17 @@ export const DriverLicenseAttributes: Attribute[] = [
   {
     name: "original_document_back",
     type: "file",
-  }
+  },
+  {
+    name: "face",
+    type: "file",
+  },
+  {
+    name: "face_vector",
+    type: "file",
+  },
+  {
+    name: "audit_trail",
+    type: "file",
+  },
 ];

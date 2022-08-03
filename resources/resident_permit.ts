@@ -69,5 +69,17 @@ export const ResidentPermitAttributes: Attribute[] = [
   {
     name: "original_document_back",
     type: "file",
-  }
+  },
+  {
+    name: "face",
+    type: "file",
+  },
+  {
+    name: "face_vector",
+    type: "file",
+  },
+  {
+    name: "audit_trail",
+    type: "file",
+  },
 ];
