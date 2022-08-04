@@ -6,7 +6,7 @@ export var NationalIdIssuingRequestFields = [
     {
         name: "original_document_back",
         type: "string",
-    }
+    },
 ];
 export var NationalIdAttributes = [
     {
@@ -52,5 +52,5 @@ export var NationalIdAttributes = [
     {
         name: "original_document_back",
         type: "file",
-    }
+    },
 ];

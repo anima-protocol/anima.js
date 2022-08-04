@@ -52,5 +52,5 @@ export var ResidentPermitAttributes = [
     {
         name: "original_document_back",
         type: "file",
-    }
+    },
 ];

@@ -22,7 +22,7 @@ export const NationalIdIssuingRequestFields: IssuingRequestField[] = [
   {
     name: "original_document_back",
     type: "string",
-  }
+  },
 ];
 
 export const NationalIdAttributes: Attribute[] = [
@@ -69,5 +69,5 @@ export const NationalIdAttributes: Attribute[] = [
   {
     name: "original_document_back",
     type: "file",
-  }
+  },
 ];

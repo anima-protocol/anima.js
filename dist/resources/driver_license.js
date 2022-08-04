@@ -6,7 +6,7 @@ export var DriverLicenseIssuingRequestFields = [
     {
         name: "original_document_back",
         type: "string",
-    }
+    },
 ];
 export var DriverLicenseAttributes = [
     {
@@ -48,5 +48,5 @@ export var DriverLicenseAttributes = [
     {
         name: "original_document_back",
         type: "file",
-    }
+    },
 ];

@@ -2,7 +2,7 @@ export var PassportIssuingRequestFields = [
     {
         name: "original_passport_page",
         type: "string",
-    }
+    },
 ];
 export var PassportAttributes = [
     {
@@ -40,5 +40,5 @@ export var PassportAttributes = [
     {
         name: "original_passport_page",
         type: "file",
-    }
+    },
 ];

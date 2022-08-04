@@ -69,5 +69,5 @@ export const ResidentPermitAttributes: Attribute[] = [
   {
     name: "original_document_back",
     type: "file",
-  }
+  },
 ];
