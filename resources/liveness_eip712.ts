@@ -1,19 +1,19 @@
 import { IssuingRequestField, Attribute } from "../types";
 
 export interface LivenessEIP712 {
-  face_vector: string
+  zk_facemap: string
 }
 
 export const LivenessEIP712IssuingRequestFields: IssuingRequestField[] = [
   {
-    name: "face_vector",
+    name: "zk_facemap",
     type: "string",
   }
 ];
 
 export const LivenessEIP712Attributes: Attribute[] = [
   {
-    name: "face_vector",
+    name: "zk_facemap",
     type: "string",
   }
 ];

@@ -1,20 +1,28 @@
 export var LivenessEIP1024IssuingRequestFields = [
     {
-        name: "face_vector",
+        name: "zk_facemap",
         type: "string",
     },
     {
         name: "audit_trail",
+        type: "string",
+    },
+    {
+        name: "face",
         type: "string",
     }
 ];
 export var LivenessEIP1024Attributes = [
     {
-        name: "face_vector",
+        name: "zk_facemap",
         type: "string",
     },
     {
         name: "audit_trail",
+        type: "string",
+    },
+    {
+        name: "face",
         type: "string",
     }
 ];

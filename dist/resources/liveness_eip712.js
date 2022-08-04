@@ -1,12 +1,12 @@
 export var LivenessEIP712IssuingRequestFields = [
     {
-        name: "face_vector",
+        name: "zk_facemap",
         type: "string",
     }
 ];
 export var LivenessEIP712Attributes = [
     {
-        name: "face_vector",
+        name: "zk_facemap",
         type: "string",
     }
 ];
