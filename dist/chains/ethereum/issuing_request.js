@@ -11,7 +11,9 @@ var __assign = (this && this.__assign) || function () {
 };
 import Resources from "../../resources/index";
 import Chains from "../index";
-export function IssuingRequest(specs, message) {
+export function IssuingRequest(specs, message, pkey) {
+    var _a;
+    if (pkey === void 0) { pkey = true; }
     var challenge = {
         domain: {
             name: "anima",
@@ -27,7 +29,7 @@ export function IssuingRequest(specs, message) {
                 { name: "specs", type: "string" },
                 { name: "requested_at", type: "uint64" },
                 { name: "fields", type: "Fields" },
-                { name: "attributes", type: "Attributes" }
+                { name: "attributes", type: "Attributes" },
             ],
             Fields: Resources.IssuingRequestFields[specs],
             Attributes: Resources.IssuingResourceAttributesTypes(specs),
@@ -36,7 +38,6 @@ export function IssuingRequest(specs, message) {
                 { name: "public_address", type: "address" },
                 { name: "chain", type: "string" },
                 { name: "wallet", type: "string" },
-                { name: "public_key_encryption", type: "string" },
             ],
             Issuer: [
                 { name: "id", type: "string" },
@@ -50,5 +51,15 @@ export function IssuingRequest(specs, message) {
             ],
         },
     };
+    if (pkey) {
+        challenge.types.Owner.push({
+            name: "public_key_encryption",
+            type: "string",
+        });
+    }
+    if ((_a = message === null || message === void 0 ? void 0 : message.owner) === null || _a === void 0 ? void 0 : _a.public_key_encryption) {
+        challenge.types.Owner.public_key_encryption =
+            message.owner.public_key_encryption;
+    }
     return challenge;
 }
