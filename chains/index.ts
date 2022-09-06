@@ -17,6 +17,9 @@ const MOONBEAM_ID = "1284";
 const POLYGON_NAME = "POLYGON"
 const POLYGON_ID = "137";
 
+const ELROND_NAME = "ELROND";
+const ELROND_ID = "ELROND"
+
 const EVMChainsId: { [key: string]: string} = {
   [ETH_NAME]: ETH_ID,
   [BSC_NAME]: BSC_ID,
@@ -24,6 +27,7 @@ const EVMChainsId: { [key: string]: string} = {
   [FANTOM_NAME]: FANTOM_ID,
   [MOONBEAM_NAME]: MOONBEAM_ID,
   [POLYGON_NAME]: POLYGON_ID,
+  [ELROND_NAME]: ELROND_ID,
 }
 
 const EVMChainsName: { [key: string]: string} = {
@@ -33,6 +37,7 @@ const EVMChainsName: { [key: string]: string} = {
   [FANTOM_ID]: FANTOM_NAME,
   [MOONBEAM_ID]: MOONBEAM_NAME,
   [POLYGON_ID]: POLYGON_NAME,
+  [ELROND_ID]: ELROND_NAME,
 }
 
 const AnimaChains: { [key: string]: boolean } = {
@@ -42,9 +47,10 @@ const AnimaChains: { [key: string]: boolean } = {
   [FANTOM_NAME]: true,
   [MOONBEAM_NAME]: true,
   [POLYGON_NAME]: true,
+  [ELROND_NAME]: true
 };
 
-const EVMChain = [ETH_NAME, BSC_NAME, AURORA_NAME, FANTOM_NAME, MOONBEAM_NAME, POLYGON_NAME]
+const EVMChain = [ETH_NAME, BSC_NAME, AURORA_NAME, FANTOM_NAME, MOONBEAM_NAME, POLYGON_NAME, ELROND_NAME]
 
 function IsSupported(chain: string): boolean {
   return AnimaChains[chain];

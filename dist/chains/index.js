@@ -12,6 +12,8 @@ var MOONBEAM_NAME = "MOONBEAM";
 var MOONBEAM_ID = "1284";
 var POLYGON_NAME = "POLYGON";
 var POLYGON_ID = "137";
+var ELROND_NAME = "ELROND";
+var ELROND_ID = "ELROND";
 var EVMChainsId = (_a = {},
     _a[ETH_NAME] = ETH_ID,
     _a[BSC_NAME] = BSC_ID,
@@ -19,6 +21,7 @@ var EVMChainsId = (_a = {},
     _a[FANTOM_NAME] = FANTOM_ID,
     _a[MOONBEAM_NAME] = MOONBEAM_ID,
     _a[POLYGON_NAME] = POLYGON_ID,
+    _a[ELROND_NAME] = ELROND_ID,
     _a);
 var EVMChainsName = (_b = {},
     _b[ETH_ID] = ETH_NAME,
@@ -27,6 +30,7 @@ var EVMChainsName = (_b = {},
     _b[FANTOM_ID] = FANTOM_NAME,
     _b[MOONBEAM_ID] = MOONBEAM_NAME,
     _b[POLYGON_ID] = POLYGON_NAME,
+    _b[ELROND_ID] = ELROND_NAME,
     _b);
 var AnimaChains = (_c = {},
     _c[ETH_NAME] = true,
@@ -35,8 +39,9 @@ var AnimaChains = (_c = {},
     _c[FANTOM_NAME] = true,
     _c[MOONBEAM_NAME] = true,
     _c[POLYGON_NAME] = true,
+    _c[ELROND_NAME] = true,
     _c);
-var EVMChain = [ETH_NAME, BSC_NAME, AURORA_NAME, FANTOM_NAME, MOONBEAM_NAME, POLYGON_NAME];
+var EVMChain = [ETH_NAME, BSC_NAME, AURORA_NAME, FANTOM_NAME, MOONBEAM_NAME, POLYGON_NAME, ELROND_NAME];
 function IsSupported(chain) {
     return AnimaChains[chain];
 }
