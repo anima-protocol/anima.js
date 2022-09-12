@@ -4,13 +4,14 @@ import Chains from "../index";
 export function IssuingRequest(
   specs: string,
   message: any,
+  chainId: string,
   pkey = true
 ): object {
   const challenge = {
     domain: {
       name: "anima",
       version: "1.0",
-      chainId: Chains.GetChainIdByChainName(message.owner.chain),
+      chainId: chainId,
     },
     message: {
       ...message,

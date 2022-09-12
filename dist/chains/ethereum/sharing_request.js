@@ -9,8 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import Chains from "../index";
-export function SharingRequest(message, attributes) {
+export function SharingRequest(message, chainId, attributes) {
     var ethAttributesType = [];
     Object.keys(attributes).forEach(function (key) {
         ethAttributesType.push({
@@ -22,7 +21,7 @@ export function SharingRequest(message, attributes) {
         domain: {
             name: "anima",
             version: "1.0",
-            chainId: Chains.GetChainIdByChainName(message.owner.chain),
+            chainId: chainId,
         },
         message: __assign({}, message),
         primaryType: "Main",

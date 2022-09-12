@@ -12,7 +12,7 @@ function IsInResourceAttributes(resourceAttributes, slug) {
     });
     return found;
 }
-export function GetSharingRequest(specs, attributes, owner, verifier) {
+export function GetSharingRequest(specs, attributes, owner, verifier, chainId) {
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
     }
@@ -37,7 +37,7 @@ export function GetSharingRequest(specs, attributes, owner, verifier) {
     };
     var challenge = {};
     if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
-        challenge = Ethereum.SharingRequest(message, attributes);
+        challenge = Ethereum.SharingRequest(message, chainId, attributes);
     }
     else {
         throw "Unable to get sharing request";

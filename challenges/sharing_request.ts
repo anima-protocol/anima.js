@@ -24,7 +24,8 @@ export function GetSharingRequest(
   specs: string,
   attributes: { [key: string]: string },
   owner: Owner,
-  verifier: Verifier
+  verifier: Verifier,
+  chainId: string
 ): string {
   if (Chains.IsSupported(owner.chain) === false) {
     throw Error("Chain not supported");
@@ -54,7 +55,7 @@ export function GetSharingRequest(
   let challenge = {};
 
   if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
-    challenge = Ethereum.SharingRequest(message, attributes)
+    challenge = Ethereum.SharingRequest(message, chainId, attributes)
   } else {
     throw "Unable to get sharing request";
   }
