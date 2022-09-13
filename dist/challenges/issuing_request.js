@@ -3,7 +3,7 @@ import Chains from "../chains";
 import Wallets from "../wallets";
 import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
-export function GetIssuingRequest(specs, fields, owner, issuer) {
+export function GetIssuingRequest(specs, fields, owner, issuer, chainId) {
     if (Resources.IsSupported(specs) === false) {
         throw Error("Resource not supported");
     }
@@ -33,14 +33,14 @@ export function GetIssuingRequest(specs, fields, owner, issuer) {
     };
     var challenge = {};
     if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
-        challenge = Ethereum.IssuingRequest(specs, message);
+        challenge = Ethereum.IssuingRequest(specs, message, chainId);
     }
     else {
         throw "Unable to get issuing request";
     }
     return JSON.stringify(challenge);
 }
-export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer) {
+export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer, chainId) {
     if (Resources.IsSupported(specs) === false) {
         throw Error("Resource not supported");
     }
@@ -70,14 +70,14 @@ export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer) {
     };
     var challenge = {};
     if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
-        challenge = Ethereum.IssuingRequest(specs, message);
+        challenge = Ethereum.IssuingRequest(specs, message, chainId);
     }
     else {
         throw "Unable to get issuing request";
     }
     return JSON.stringify(challenge);
 }
-export function GetLivenessIssuingRequestEIP712(specs, fields, owner, issuer) {
+export function GetLivenessIssuingRequestEIP712(specs, fields, owner, issuer, chainId) {
     if (Resources.IsSupported(specs) === false) {
         throw Error("Resource not supported");
     }
@@ -106,7 +106,7 @@ export function GetLivenessIssuingRequestEIP712(specs, fields, owner, issuer) {
     };
     var challenge = {};
     if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
-        challenge = Ethereum.IssuingRequest(specs, message, false);
+        challenge = Ethereum.IssuingRequest(specs, message, chainId, false);
     }
     else {
         throw "Unable to get issuing request";

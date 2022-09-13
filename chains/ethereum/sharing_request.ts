@@ -3,6 +3,7 @@ import Chains from "../index";
 
 export function SharingRequest(
   message: any,
+  chainId: string,
   attributes: { [key: string]: string }
 ): object {
   const ethAttributesType: Attribute[] = [];
@@ -17,7 +18,7 @@ export function SharingRequest(
     domain: {
       name: "anima",
       version: "1.0",
-      chainId: Chains.GetChainIdByChainName(message.owner.chain),
+      chainId: chainId,
     },
     message: {
       ...message,

@@ -9,7 +9,8 @@ export function GetIssuingRequest(
   specs: string,
   fields: any,
   owner: Owner,
-  issuer: Issuer
+  issuer: Issuer,
+  chainId: string
 ) {
   if (Resources.IsSupported(specs) === false) {
     throw Error("Resource not supported");
@@ -45,7 +46,7 @@ export function GetIssuingRequest(
   let challenge = {};
 
   if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
-    challenge = Ethereum.IssuingRequest(specs, message);
+    challenge = Ethereum.IssuingRequest(specs, message, chainId);
   } else {
     throw "Unable to get issuing request";
   }
@@ -57,7 +58,8 @@ export function GetLivenessIssuingRequestEIP1024(
   specs: string,
   fields: any,
   owner: Owner,
-  issuer: Issuer
+  issuer: Issuer,
+  chainId: string
 ) {
   if (Resources.IsSupported(specs) === false) {
     throw Error("Resource not supported");
@@ -93,7 +95,7 @@ export function GetLivenessIssuingRequestEIP1024(
   let challenge = {};
 
   if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
-    challenge = Ethereum.IssuingRequest(specs, message);
+    challenge = Ethereum.IssuingRequest(specs, message, chainId);
   } else {
     throw "Unable to get issuing request";
   }
@@ -105,7 +107,8 @@ export function GetLivenessIssuingRequestEIP712(
   specs: string,
   fields: any,
   owner: Owner,
-  issuer: Issuer
+  issuer: Issuer,
+  chainId: string
 ) {
   if (Resources.IsSupported(specs) === false) {
     throw Error("Resource not supported");
@@ -140,7 +143,7 @@ export function GetLivenessIssuingRequestEIP712(
   let challenge = {};
 
   if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
-    challenge = Ethereum.IssuingRequest(specs, message, false);
+    challenge = Ethereum.IssuingRequest(specs, message, chainId, false);
   } else {
     throw "Unable to get issuing request";
   }

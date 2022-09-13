@@ -10,15 +10,14 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import Resources from "../../resources/index";
-import Chains from "../index";
-export function IssuingRequest(specs, message, pkey) {
+export function IssuingRequest(specs, message, chainId, pkey) {
     var _a;
     if (pkey === void 0) { pkey = true; }
     var challenge = {
         domain: {
             name: "anima",
             version: "1.0",
-            chainId: Chains.GetChainIdByChainName(message.owner.chain),
+            chainId: chainId,
         },
         message: __assign({}, message),
         primaryType: "Main",
