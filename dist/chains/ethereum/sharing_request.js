@@ -9,7 +9,8 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-export function SharingRequest(message, chainId, attributes) {
+export function SharingRequest(message, chainId, attributes, addressType) {
+    if (addressType === void 0) { addressType = "address"; }
     var ethAttributesType = [];
     Object.keys(attributes).forEach(function (key) {
         ethAttributesType.push({
@@ -35,7 +36,7 @@ export function SharingRequest(message, chainId, attributes) {
             ],
             Owner: [
                 { name: "id", type: "string" },
-                { name: "public_address", type: "address" },
+                { name: "public_address", type: addressType },
                 { name: "chain", type: "string" },
                 { name: "wallet", type: "string" },
             ],

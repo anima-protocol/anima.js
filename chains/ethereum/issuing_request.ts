@@ -5,7 +5,8 @@ export function IssuingRequest(
   specs: string,
   message: any,
   chainId: string,
-  pkey = true
+  pkey = true,
+  addressType = "address"
 ): object {
   const challenge = {
     domain: {
@@ -30,7 +31,7 @@ export function IssuingRequest(
       Attributes: Resources.IssuingResourceAttributesTypes(specs),
       Owner: [
         { name: "id", type: "string" },
-        { name: "public_address", type: "address" },
+        { name: "public_address", type: addressType },
         { name: "chain", type: "string" },
         { name: "wallet", type: "string" },
       ],
