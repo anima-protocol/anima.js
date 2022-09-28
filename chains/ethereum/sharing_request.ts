@@ -4,7 +4,8 @@ import Chains from "../index";
 export function SharingRequest(
   message: any,
   chainId: string,
-  attributes: { [key: string]: string }
+  attributes: { [key: string]: string },
+  addressType = "address"
 ): object {
   const ethAttributesType: Attribute[] = [];
   Object.keys(attributes).forEach((key) => {
@@ -34,7 +35,7 @@ export function SharingRequest(
       ],
       Owner: [
         { name: "id", type: "string" },
-        { name: "public_address", type: "address" },
+        { name: "public_address", type: addressType },
         { name: "chain", type: "string" },
         { name: "wallet", type: "string" },
       ],

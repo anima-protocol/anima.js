@@ -10,9 +10,10 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import Resources from "../../resources/index";
-export function IssuingRequest(specs, message, chainId, pkey) {
+export function IssuingRequest(specs, message, chainId, pkey, addressType) {
     var _a;
     if (pkey === void 0) { pkey = true; }
+    if (addressType === void 0) { addressType = "address"; }
     var challenge = {
         domain: {
             name: "anima",
@@ -34,7 +35,7 @@ export function IssuingRequest(specs, message, chainId, pkey) {
             Attributes: Resources.IssuingResourceAttributesTypes(specs),
             Owner: [
                 { name: "id", type: "string" },
-                { name: "public_address", type: "address" },
+                { name: "public_address", type: addressType },
                 { name: "chain", type: "string" },
                 { name: "wallet", type: "string" },
             ],

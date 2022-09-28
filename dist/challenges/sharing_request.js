@@ -12,7 +12,8 @@ function IsInResourceAttributes(resourceAttributes, slug) {
     });
     return found;
 }
-export function GetSharingRequest(specs, attributes, owner, verifier, chainId) {
+export function GetSharingRequest(specs, attributes, owner, verifier, chainId, addressType) {
+    if (addressType === void 0) { addressType = "address"; }
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
     }
@@ -37,7 +38,7 @@ export function GetSharingRequest(specs, attributes, owner, verifier, chainId) {
     };
     var challenge = {};
     if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
-        challenge = Ethereum.SharingRequest(message, chainId, attributes);
+        challenge = Ethereum.SharingRequest(message, chainId, attributes, addressType);
     }
     else {
         throw "Unable to get sharing request";
