@@ -1,6 +1,5 @@
 import moment from "moment";
 import Chains from "../chains";
-import Wallets from "../wallets";
 import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
 export function GetIssuingRequest(specs, fields, owner, issuer, chainId, addressType) {
@@ -11,9 +10,6 @@ export function GetIssuingRequest(specs, fields, owner, issuer, chainId, address
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
     }
-    if (Wallets.IsSupported(owner.wallet) === false) {
-        throw Error("Wallet not supported");
-    }
     var message = {
         specs: specs,
         requested_at: moment().utc().unix(),
@@ -22,7 +18,6 @@ export function GetIssuingRequest(specs, fields, owner, issuer, chainId, address
         owner: {
             id: "anima:owner:".concat(owner.public_address),
             chain: owner.chain,
-            wallet: owner.wallet,
             public_address: owner.public_address,
             public_key_encryption: owner.public_key_encryption,
         },
@@ -49,9 +44,6 @@ export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer, c
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
     }
-    if (Wallets.IsSupported(owner.wallet) === false) {
-        throw Error("Wallet not supported");
-    }
     var message = {
         specs: specs,
         requested_at: moment().utc().unix(),
@@ -60,7 +52,6 @@ export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer, c
         owner: {
             id: "anima:owner:".concat(owner.public_address),
             chain: owner.chain,
-            wallet: owner.wallet,
             public_address: owner.public_address,
             public_key_encryption: owner.public_key_encryption,
         },
@@ -87,9 +78,6 @@ export function GetLivenessIssuingRequestEIP712(specs, fields, owner, issuer, ch
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
     }
-    if (Wallets.IsSupported(owner.wallet) === false) {
-        throw Error("Wallet not supported");
-    }
     var message = {
         specs: specs,
         requested_at: moment().utc().unix(),
@@ -98,7 +86,6 @@ export function GetLivenessIssuingRequestEIP712(specs, fields, owner, issuer, ch
         owner: {
             id: "anima:owner:".concat(owner.public_address),
             chain: owner.chain,
-            wallet: owner.wallet,
             public_address: owner.public_address,
         },
         issuer: {

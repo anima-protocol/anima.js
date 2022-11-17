@@ -37,7 +37,6 @@ export function IssuingRequest(specs, message, chainId, pkey, addressType) {
                 { name: "id", type: "string" },
                 { name: "public_address", type: addressType },
                 { name: "chain", type: "string" },
-                { name: "wallet", type: "string" },
             ],
             Issuer: [
                 { name: "id", type: "string" },
