@@ -21,7 +21,7 @@ const NATIONAL_ID = "anima:schema:document/national_id@1.0.0";
 const DRIVER_LICENSE = "anima:schema:document/driver_license@1.0.0";
 const RESIDENT_PERMIT = "anima:schema:document/resident_permit@1.0.0";
 const LIVENESS_EIP1024 = "anima:schema:document/liveness@1.0.0";
-const LIVENESS_EIP712 = "anima:schema:face@1.0.0";
+const LIVENESS_EIP712 = "anima:schema:pop@1.0.0";
 
 /* Anima Supported Resources */
 const AnimaResources: { [key: string]: boolean } = {
