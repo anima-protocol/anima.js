@@ -32,10 +32,6 @@ export function GetSharingRequest(
     throw Error("Chain not supported");
   }
 
-  if (Wallets.IsSupported(owner.wallet) === false) {
-    throw Error("Wallet not supported");
-  }
-
   const message = {
     specs: specs,
     shared_at: moment().utc().unix(),
@@ -44,7 +40,6 @@ export function GetSharingRequest(
       id: `anima:owner:${owner.public_address}`,
       public_address: owner.public_address,
       chain: owner.chain,
-      wallet: owner.wallet,
     },
     verifier: {
       id: verifier.id,

@@ -1,6 +1,6 @@
 export var LivenessEIP1024IssuingRequestFields = [
     {
-        name: "zk_facemap",
+        name: "facegraph",
         type: "string",
     },
     {
@@ -14,7 +14,7 @@ export var LivenessEIP1024IssuingRequestFields = [
 ];
 export var LivenessEIP1024Attributes = [
     {
-        name: "zk_facemap",
+        name: "facegraph",
         type: "string",
     },
     {
