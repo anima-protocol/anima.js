@@ -12,10 +12,10 @@ export function GetIssuingRequest(specs, fields, owner, issuer, chainId, publicK
     const message = {
         specs: specs,
         requested_at: moment().utc().unix(),
-        fields,
-        attributes: Resources.IssuingResourceAttributes(specs),
         public_key_encryption: publicKeyEncryption,
         nonce: nonce,
+        fields,
+        attributes: Resources.IssuingResourceAttributes(specs),
         owner: {
             id: `anima:owner:${owner.public_address}`,
             chain: owner.chain,
@@ -46,10 +46,10 @@ export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer, c
     const message = {
         specs: specs,
         requested_at: moment().utc().unix(),
-        fields,
-        attributes: Resources.IssuingResourceAttributes(specs),
         public_key_encryption: publicKeyEncryption,
         nonce: nonce,
+        fields,
+        attributes: Resources.IssuingResourceAttributes(specs),
         owner: {
             id: `anima:owner:${owner.public_address}`,
             chain: owner.chain,
