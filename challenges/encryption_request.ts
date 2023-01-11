@@ -1,10 +1,9 @@
 
 export function GetEncryptionRequest(nonce: string): string {
-    return `
-        ANIMA ENCRYPTION REQUEST.
+    return `ANIMA ENCRYPTION REQUEST.
 
-        /!\ BE AWARE TO BE ON TRUSTED WEBSITE.
+/!\ BE AWARE TO BE ON TRUSTED WEBSITE.
         
-        NONCE: ${nonce}
-    `
+NONCE: ${nonce}
+`
 }
