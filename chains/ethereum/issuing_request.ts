@@ -49,15 +49,10 @@ export function IssuingRequest(
   };
 
   if (pkey) {
-    challenge.types.Owner.push({
+    challenge.types.Main.push({
       name: "public_key_encryption",
       type: "string",
     });
-  }
-
-  if (message?.owner?.public_key_encryption) {
-    (challenge.types.Owner as any).public_key_encryption =
-      message.owner.public_key_encryption;
   }
 
   return challenge;

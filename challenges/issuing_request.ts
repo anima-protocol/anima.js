@@ -30,12 +30,12 @@ export function GetIssuingRequest(
     requested_at: moment().utc().unix(),
     fields,
     attributes: Resources.IssuingResourceAttributes(specs),
+    public_key_encryption: owner.public_key_encryption,
     owner: {
       id: `anima:owner:${owner.public_address}`,
       chain: owner.chain,
       wallet: owner.wallet,
       public_address: owner.public_address,
-      public_key_encryption: owner.public_key_encryption,
     },
     issuer: {
       public_address: issuer.public_address,
@@ -80,12 +80,12 @@ export function GetLivenessIssuingRequestEIP1024(
     requested_at: moment().utc().unix(),
     fields,
     attributes: Resources.IssuingResourceAttributes(specs),
+    public_key_encryption: owner.public_key_encryption,
     owner: {
       id: `anima:owner:${owner.public_address}`,
       chain: owner.chain,
       wallet: owner.wallet,
       public_address: owner.public_address,
-      public_key_encryption: owner.public_key_encryption,
     },
     issuer: {
       public_address: issuer.public_address,

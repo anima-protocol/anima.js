@@ -1,6 +1,5 @@
 import Resources from "../../resources/index";
 export function IssuingRequest(specs, message, chainId, pkey = true, addressType = "address") {
-    var _a;
     const challenge = {
         domain: {
             name: "anima",
@@ -39,14 +38,10 @@ export function IssuingRequest(specs, message, chainId, pkey = true, addressType
         },
     };
     if (pkey) {
-        challenge.types.Owner.push({
+        challenge.types.Main.push({
             name: "public_key_encryption",
             type: "string",
         });
-    }
-    if ((_a = message === null || message === void 0 ? void 0 : message.owner) === null || _a === void 0 ? void 0 : _a.public_key_encryption) {
-        challenge.types.Owner.public_key_encryption =
-            message.owner.public_key_encryption;
     }
     return challenge;
 }
