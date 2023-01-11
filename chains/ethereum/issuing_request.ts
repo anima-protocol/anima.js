@@ -52,6 +52,10 @@ export function IssuingRequest(
       name: "public_key_encryption",
       type: "string",
     });
+    challenge.types.Main.push({
+      name: "nonce",
+      type: "string",
+    });
   }
 
   return challenge;

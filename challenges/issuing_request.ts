@@ -12,6 +12,7 @@ export function GetIssuingRequest(
   issuer: Issuer,
   chainId: string,
   publicKeyEncryption: string,
+  nonce: string,
   addressType = "address"
 ) {
   if (Resources.IsSupported(specs) === false) {
@@ -28,6 +29,7 @@ export function GetIssuingRequest(
     fields,
     attributes: Resources.IssuingResourceAttributes(specs),
     public_key_encryption: publicKeyEncryption,
+    nonce: nonce,
     owner: {
       id: `anima:owner:${owner.public_address}`,
       chain: owner.chain,
@@ -58,6 +60,7 @@ export function GetLivenessIssuingRequestEIP1024(
   issuer: Issuer,
   chainId: string,
   publicKeyEncryption: string,
+  nonce: string,
   addressType = "address"
 ) {
   if (Resources.IsSupported(specs) === false) {
@@ -74,6 +77,7 @@ export function GetLivenessIssuingRequestEIP1024(
     fields,
     attributes: Resources.IssuingResourceAttributes(specs),
     public_key_encryption: publicKeyEncryption,
+    nonce: nonce,
     owner: {
       id: `anima:owner:${owner.public_address}`,
       chain: owner.chain,
