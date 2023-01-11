@@ -1,28 +1,23 @@
 import moment from "moment";
 import Chains from "../chains";
-import Wallets from "../wallets";
 import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
-export function GetIssuingRequest(specs, fields, owner, issuer, chainId, addressType = "address") {
+export function GetIssuingRequest(specs, fields, owner, issuer, chainId, publicKeyEncryption, addressType = "address") {
     if (Resources.IsSupported(specs) === false) {
         throw Error("Resource not supported");
     }
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
     }
-    if (Wallets.IsSupported(owner.wallet) === false) {
-        throw Error("Wallet not supported");
-    }
     const message = {
         specs: specs,
         requested_at: moment().utc().unix(),
         fields,
         attributes: Resources.IssuingResourceAttributes(specs),
-        public_key_encryption: owner.public_key_encryption,
+        public_key_encryption: publicKeyEncryption,
         owner: {
             id: `anima:owner:${owner.public_address}`,
             chain: owner.chain,
-            wallet: owner.wallet,
             public_address: owner.public_address,
         },
         issuer: {
@@ -40,26 +35,22 @@ export function GetIssuingRequest(specs, fields, owner, issuer, chainId, address
     }
     return JSON.stringify(challenge);
 }
-export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer, chainId, addressType = "address") {
+export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer, chainId, publicKeyEncryption, addressType = "address") {
     if (Resources.IsSupported(specs) === false) {
         throw Error("Resource not supported");
     }
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
     }
-    if (Wallets.IsSupported(owner.wallet) === false) {
-        throw Error("Wallet not supported");
-    }
     const message = {
         specs: specs,
         requested_at: moment().utc().unix(),
         fields,
         attributes: Resources.IssuingResourceAttributes(specs),
-        public_key_encryption: owner.public_key_encryption,
+        public_key_encryption: publicKeyEncryption,
         owner: {
             id: `anima:owner:${owner.public_address}`,
             chain: owner.chain,
-            wallet: owner.wallet,
             public_address: owner.public_address,
         },
         issuer: {
@@ -84,9 +75,6 @@ export function GetLivenessIssuingRequestEIP712(specs, fields, owner, issuer, ch
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
     }
-    if (Wallets.IsSupported(owner.wallet) === false) {
-        throw Error("Wallet not supported");
-    }
     const message = {
         specs: specs,
         requested_at: moment().utc().unix(),
@@ -95,7 +83,6 @@ export function GetLivenessIssuingRequestEIP712(specs, fields, owner, issuer, ch
         owner: {
             id: `anima:owner:${owner.public_address}`,
             chain: owner.chain,
-            wallet: owner.wallet,
             public_address: owner.public_address,
         },
         issuer: {

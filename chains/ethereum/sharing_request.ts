@@ -37,7 +37,6 @@ export function SharingRequest(
         { name: "id", type: "string" },
         { name: "public_address", type: addressType },
         { name: "chain", type: "string" },
-        { name: "wallet", type: "string" },
       ],
       Verifier: [
         { name: "id", type: "string" },

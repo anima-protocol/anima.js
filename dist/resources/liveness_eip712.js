@@ -1,12 +1,12 @@
 export const LivenessEIP712IssuingRequestFields = [
     {
-        name: "zk_facemap",
+        name: "facegraph",
         type: "string",
     }
 ];
 export const LivenessEIP712Attributes = [
     {
-        name: "zk_facemap",
+        name: "facegraph",
         type: "string",
     }
 ];

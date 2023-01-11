@@ -11,6 +11,7 @@ export function GetIssuingRequest(
   owner: Owner,
   issuer: Issuer,
   chainId: string,
+  publicKeyEncryption: string,
   addressType = "address"
 ) {
   if (Resources.IsSupported(specs) === false) {
@@ -21,20 +22,15 @@ export function GetIssuingRequest(
     throw Error("Chain not supported");
   }
 
-  if (Wallets.IsSupported(owner.wallet) === false) {
-    throw Error("Wallet not supported");
-  }
-
   const message = {
     specs: specs,
     requested_at: moment().utc().unix(),
     fields,
     attributes: Resources.IssuingResourceAttributes(specs),
-    public_key_encryption: owner.public_key_encryption,
+    public_key_encryption: publicKeyEncryption,
     owner: {
       id: `anima:owner:${owner.public_address}`,
       chain: owner.chain,
-      wallet: owner.wallet,
       public_address: owner.public_address,
     },
     issuer: {
@@ -61,6 +57,7 @@ export function GetLivenessIssuingRequestEIP1024(
   owner: Owner,
   issuer: Issuer,
   chainId: string,
+  publicKeyEncryption: string,
   addressType = "address"
 ) {
   if (Resources.IsSupported(specs) === false) {
@@ -71,20 +68,15 @@ export function GetLivenessIssuingRequestEIP1024(
     throw Error("Chain not supported");
   }
 
-  if (Wallets.IsSupported(owner.wallet) === false) {
-    throw Error("Wallet not supported");
-  }
-
   const message = {
     specs: specs,
     requested_at: moment().utc().unix(),
     fields,
     attributes: Resources.IssuingResourceAttributes(specs),
-    public_key_encryption: owner.public_key_encryption,
+    public_key_encryption: publicKeyEncryption,
     owner: {
       id: `anima:owner:${owner.public_address}`,
       chain: owner.chain,
-      wallet: owner.wallet,
       public_address: owner.public_address,
     },
     issuer: {
@@ -121,10 +113,6 @@ export function GetLivenessIssuingRequestEIP712(
     throw Error("Chain not supported");
   }
 
-  if (Wallets.IsSupported(owner.wallet) === false) {
-    throw Error("Wallet not supported");
-  }
-
   const message = {
     specs: specs,
     requested_at: moment().utc().unix(),
@@ -133,7 +121,6 @@ export function GetLivenessIssuingRequestEIP712(
     owner: {
       id: `anima:owner:${owner.public_address}`,
       chain: owner.chain,
-      wallet: owner.wallet,
       public_address: owner.public_address,
     },
     issuer: {
