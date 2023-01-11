@@ -31,7 +31,7 @@ function generateRandomNonce() {
     bytesArray.forEach((elem) => {
         resArray.push(elem.toString(16).padStart(2, '0'));
     });
-    return btoa(resArray.join(""));
+    return resArray.join("");
 }
 /*
  Returns a public eth key from an specific eth private key.

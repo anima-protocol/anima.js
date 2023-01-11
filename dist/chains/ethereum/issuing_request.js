@@ -41,6 +41,10 @@ export function IssuingRequest(specs, message, chainId, pkey = true, addressType
             name: "public_key_encryption",
             type: "string",
         });
+        challenge.types.Main.push({
+            name: "nonce",
+            type: "string",
+        });
     }
     return challenge;
 }

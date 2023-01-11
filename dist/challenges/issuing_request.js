@@ -2,7 +2,7 @@ import moment from "moment";
 import Chains from "../chains";
 import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
-export function GetIssuingRequest(specs, fields, owner, issuer, chainId, publicKeyEncryption, addressType = "address") {
+export function GetIssuingRequest(specs, fields, owner, issuer, chainId, publicKeyEncryption, nonce, addressType = "address") {
     if (Resources.IsSupported(specs) === false) {
         throw Error("Resource not supported");
     }
@@ -15,6 +15,7 @@ export function GetIssuingRequest(specs, fields, owner, issuer, chainId, publicK
         fields,
         attributes: Resources.IssuingResourceAttributes(specs),
         public_key_encryption: publicKeyEncryption,
+        nonce: nonce,
         owner: {
             id: `anima:owner:${owner.public_address}`,
             chain: owner.chain,
@@ -35,7 +36,7 @@ export function GetIssuingRequest(specs, fields, owner, issuer, chainId, publicK
     }
     return JSON.stringify(challenge);
 }
-export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer, chainId, publicKeyEncryption, addressType = "address") {
+export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer, chainId, publicKeyEncryption, nonce, addressType = "address") {
     if (Resources.IsSupported(specs) === false) {
         throw Error("Resource not supported");
     }
@@ -48,6 +49,7 @@ export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer, c
         fields,
         attributes: Resources.IssuingResourceAttributes(specs),
         public_key_encryption: publicKeyEncryption,
+        nonce: nonce,
         owner: {
             id: `anima:owner:${owner.public_address}`,
             chain: owner.chain,
