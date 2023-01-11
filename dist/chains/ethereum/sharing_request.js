@@ -1,30 +1,18 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-export function SharingRequest(message, chainId, attributes, addressType) {
-    if (addressType === void 0) { addressType = "address"; }
-    var ethAttributesType = [];
-    Object.keys(attributes).forEach(function (key) {
+export function SharingRequest(message, chainId, attributes, addressType = "address") {
+    const ethAttributesType = [];
+    Object.keys(attributes).forEach((key) => {
         ethAttributesType.push({
             name: key,
             type: "string",
         });
     });
-    var challenge = {
+    const challenge = {
         domain: {
             name: "anima",
             version: "1.0",
             chainId: chainId,
         },
-        message: __assign({}, message),
+        message: Object.assign({}, message),
         primaryType: "Main",
         types: {
             Main: [

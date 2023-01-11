@@ -1,4 +1,4 @@
-export var DriverLicenseIssuingRequestFields = [
+export const DriverLicenseIssuingRequestFields = [
     {
         name: "original_document_front",
         type: "string",
@@ -8,7 +8,7 @@ export var DriverLicenseIssuingRequestFields = [
         type: "string",
     },
 ];
-export var DriverLicenseAttributes = [
+export const DriverLicenseAttributes = [
     {
         name: "firstname",
         type: "string",

@@ -1,4 +1,4 @@
-export var LivenessEIP1024IssuingRequestFields = [
+export const LivenessEIP1024IssuingRequestFields = [
     {
         name: "zk_facemap",
         type: "string",
@@ -12,7 +12,7 @@ export var LivenessEIP1024IssuingRequestFields = [
         type: "string",
     }
 ];
-export var LivenessEIP1024Attributes = [
+export const LivenessEIP1024Attributes = [
     {
         name: "zk_facemap",
         type: "string",

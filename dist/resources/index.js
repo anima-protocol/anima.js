@@ -1,4 +1,3 @@
-var _a, _b;
 import { PassportIssuingRequestFields, PassportAttributes } from "./passport";
 import { NationalIdAttributes, NationalIdIssuingRequestFields, } from "./national_id";
 import { DriverLicenseAttributes, DriverLicenseIssuingRequestFields, } from "./driver_license";
@@ -6,14 +5,14 @@ import { ResidentPermitAttributes, ResidentPermitIssuingRequestFields, } from ".
 import { LivenessEIP712Attributes, LivenessEIP712IssuingRequestFields } from "./liveness_eip712";
 import { LivenessEIP1024Attributes, LivenessEIP1024IssuingRequestFields } from "./liveness_eip1024";
 /* Anima Resources */
-var PASSPORT = "anima:specs:document/passport@1.0.0";
-var NATIONAL_ID = "anima:specs:document/national_id@1.0.0";
-var DRIVER_LICENSE = "anima:specs:document/driver_license@1.0.0";
-var RESIDENT_PERMIT = "anima:specs:document/resident_permit@1.0.0";
-var LIVENESS_EIP1024 = "anima:specs:document/liveness@1.0.0";
-var LIVENESS_EIP712 = "anima:specs:face@1.0.0";
+const PASSPORT = "anima:specs:document/passport@1.0.0";
+const NATIONAL_ID = "anima:specs:document/national_id@1.0.0";
+const DRIVER_LICENSE = "anima:specs:document/driver_license@1.0.0";
+const RESIDENT_PERMIT = "anima:specs:document/resident_permit@1.0.0";
+const LIVENESS_EIP1024 = "anima:specs:document/liveness@1.0.0";
+const LIVENESS_EIP712 = "anima:specs:face@1.0.0";
 /* Anima Supported Resources */
-var AnimaResources = {
+const AnimaResources = {
     PASSPORT: true,
     NATIONAL_ID: true,
     DRIVER_LICENSE: true,
@@ -25,31 +24,31 @@ function IsSupported(resource) {
     return AnimaResources[resource];
 }
 /* Ethereum chain */
-var IssuingRequestFields = (_a = {},
-    _a[PASSPORT] = PassportIssuingRequestFields,
-    _a[NATIONAL_ID] = NationalIdIssuingRequestFields,
-    _a[DRIVER_LICENSE] = DriverLicenseIssuingRequestFields,
-    _a[RESIDENT_PERMIT] = ResidentPermitIssuingRequestFields,
-    _a[LIVENESS_EIP712] = LivenessEIP712IssuingRequestFields,
-    _a[LIVENESS_EIP1024] = LivenessEIP1024IssuingRequestFields,
-    _a);
-var ResourceAttributes = (_b = {},
-    _b[PASSPORT] = PassportAttributes,
-    _b[NATIONAL_ID] = NationalIdAttributes,
-    _b[DRIVER_LICENSE] = DriverLicenseAttributes,
-    _b[RESIDENT_PERMIT] = ResidentPermitAttributes,
-    _b[LIVENESS_EIP712] = LivenessEIP712Attributes,
-    _b[LIVENESS_EIP1024] = LivenessEIP1024Attributes,
-    _b);
-var IssuingResourceAttributes = function (key) {
-    var result = {};
-    ResourceAttributes[key].forEach(function (attribute) {
+const IssuingRequestFields = {
+    [PASSPORT]: PassportIssuingRequestFields,
+    [NATIONAL_ID]: NationalIdIssuingRequestFields,
+    [DRIVER_LICENSE]: DriverLicenseIssuingRequestFields,
+    [RESIDENT_PERMIT]: ResidentPermitIssuingRequestFields,
+    [LIVENESS_EIP712]: LivenessEIP712IssuingRequestFields,
+    [LIVENESS_EIP1024]: LivenessEIP1024IssuingRequestFields,
+};
+const ResourceAttributes = {
+    [PASSPORT]: PassportAttributes,
+    [NATIONAL_ID]: NationalIdAttributes,
+    [DRIVER_LICENSE]: DriverLicenseAttributes,
+    [RESIDENT_PERMIT]: ResidentPermitAttributes,
+    [LIVENESS_EIP712]: LivenessEIP712Attributes,
+    [LIVENESS_EIP1024]: LivenessEIP1024Attributes,
+};
+const IssuingResourceAttributes = (key) => {
+    const result = {};
+    ResourceAttributes[key].forEach((attribute) => {
         result[attribute.name] = true;
     });
     return result;
 };
-var IssuingResourceAttributesTypes = function (key) {
-    return ResourceAttributes[key].map(function (attribute) {
+const IssuingResourceAttributesTypes = (key) => {
+    return ResourceAttributes[key].map((attribute) => {
         return {
             name: attribute.name,
             type: "bool"
@@ -57,15 +56,15 @@ var IssuingResourceAttributesTypes = function (key) {
     });
 };
 export default {
-    PASSPORT: PASSPORT,
-    NATIONAL_ID: NATIONAL_ID,
-    DRIVER_LICENSE: DRIVER_LICENSE,
-    RESIDENT_PERMIT: RESIDENT_PERMIT,
-    LIVENESS_EIP712: LIVENESS_EIP712,
-    LIVENESS_EIP1024: LIVENESS_EIP1024,
-    IsSupported: IsSupported,
-    IssuingRequestFields: IssuingRequestFields,
-    ResourceAttributes: ResourceAttributes,
-    IssuingResourceAttributes: IssuingResourceAttributes,
-    IssuingResourceAttributesTypes: IssuingResourceAttributesTypes
+    PASSPORT,
+    NATIONAL_ID,
+    DRIVER_LICENSE,
+    RESIDENT_PERMIT,
+    LIVENESS_EIP712,
+    LIVENESS_EIP1024,
+    IsSupported,
+    IssuingRequestFields,
+    ResourceAttributes,
+    IssuingResourceAttributes,
+    IssuingResourceAttributesTypes
 };

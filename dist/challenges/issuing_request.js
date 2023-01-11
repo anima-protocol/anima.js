@@ -3,8 +3,7 @@ import Chains from "../chains";
 import Wallets from "../wallets";
 import Resources from "../resources/index";
 import Ethereum from "../chains/ethereum/index";
-export function GetIssuingRequest(specs, fields, owner, issuer, chainId, addressType) {
-    if (addressType === void 0) { addressType = "address"; }
+export function GetIssuingRequest(specs, fields, owner, issuer, chainId, addressType = "address") {
     if (Resources.IsSupported(specs) === false) {
         throw Error("Resource not supported");
     }
@@ -14,13 +13,13 @@ export function GetIssuingRequest(specs, fields, owner, issuer, chainId, address
     if (Wallets.IsSupported(owner.wallet) === false) {
         throw Error("Wallet not supported");
     }
-    var message = {
+    const message = {
         specs: specs,
         requested_at: moment().utc().unix(),
-        fields: fields,
+        fields,
         attributes: Resources.IssuingResourceAttributes(specs),
         owner: {
-            id: "anima:owner:".concat(owner.public_address),
+            id: `anima:owner:${owner.public_address}`,
             chain: owner.chain,
             wallet: owner.wallet,
             public_address: owner.public_address,
@@ -32,7 +31,7 @@ export function GetIssuingRequest(specs, fields, owner, issuer, chainId, address
             id: issuer.id,
         },
     };
-    var challenge = {};
+    let challenge = {};
     if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
         challenge = Ethereum.IssuingRequest(specs, message, chainId, true, addressType);
     }
@@ -41,8 +40,7 @@ export function GetIssuingRequest(specs, fields, owner, issuer, chainId, address
     }
     return JSON.stringify(challenge);
 }
-export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer, chainId, addressType) {
-    if (addressType === void 0) { addressType = "address"; }
+export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer, chainId, addressType = "address") {
     if (Resources.IsSupported(specs) === false) {
         throw Error("Resource not supported");
     }
@@ -52,13 +50,13 @@ export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer, c
     if (Wallets.IsSupported(owner.wallet) === false) {
         throw Error("Wallet not supported");
     }
-    var message = {
+    const message = {
         specs: specs,
         requested_at: moment().utc().unix(),
-        fields: fields,
+        fields,
         attributes: Resources.IssuingResourceAttributes(specs),
         owner: {
-            id: "anima:owner:".concat(owner.public_address),
+            id: `anima:owner:${owner.public_address}`,
             chain: owner.chain,
             wallet: owner.wallet,
             public_address: owner.public_address,
@@ -70,7 +68,7 @@ export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer, c
             id: issuer.id,
         },
     };
-    var challenge = {};
+    let challenge = {};
     if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
         challenge = Ethereum.IssuingRequest(specs, message, chainId, true, addressType);
     }
@@ -79,8 +77,7 @@ export function GetLivenessIssuingRequestEIP1024(specs, fields, owner, issuer, c
     }
     return JSON.stringify(challenge);
 }
-export function GetLivenessIssuingRequestEIP712(specs, fields, owner, issuer, chainId, addressType) {
-    if (addressType === void 0) { addressType = "address"; }
+export function GetLivenessIssuingRequestEIP712(specs, fields, owner, issuer, chainId, addressType = "address") {
     if (Resources.IsSupported(specs) === false) {
         throw Error("Resource not supported");
     }
@@ -90,13 +87,13 @@ export function GetLivenessIssuingRequestEIP712(specs, fields, owner, issuer, ch
     if (Wallets.IsSupported(owner.wallet) === false) {
         throw Error("Wallet not supported");
     }
-    var message = {
+    const message = {
         specs: specs,
         requested_at: moment().utc().unix(),
-        fields: fields,
+        fields,
         attributes: Resources.IssuingResourceAttributes(specs),
         owner: {
-            id: "anima:owner:".concat(owner.public_address),
+            id: `anima:owner:${owner.public_address}`,
             chain: owner.chain,
             wallet: owner.wallet,
             public_address: owner.public_address,
@@ -107,7 +104,7 @@ export function GetLivenessIssuingRequestEIP712(specs, fields, owner, issuer, ch
             id: issuer.id,
         },
     };
-    var challenge = {};
+    let challenge = {};
     if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
         challenge = Ethereum.IssuingRequest(specs, message, chainId, false, addressType);
     }
