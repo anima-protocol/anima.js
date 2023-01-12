@@ -16,6 +16,17 @@ interface EncryptedData {
 }
 
 /*
+ Returns a ascii string from an hex string
+*/
+const hexify = (hexString: string): string => {
+    let r = [];
+    for (let i = 0; i < hexString.length - 1; i += 2) {
+        r.push(String.fromCharCode(parseInt(hexString.charAt(i) + hexString.charAt(i + 1), 16)));
+    }
+    return r.join("");
+}
+
+/*
  Returns a Uint8Array from an hex string
 */
 const fromHexString = (hexString: string) =>
@@ -100,27 +111,41 @@ function encrypt(receiverPublicKey: string, data: string): EncryptedData {
 /*
  Returns a decrypted string from an encrypted object
  The given receiver key should be 64 charater hex string
- Data should be an valid EncryptedData Object
+ Data should be an valid hex stringé
 */
-function decrypt(receiverPrivateKey: string, encryptedData: EncryptedData): string {
-    const recieverPrivateKeyUint8Array = fromHexString(receiverPrivateKey)
-    const recieverEncryptionPrivateKey = nacl.box.keyPair.fromSecretKey(recieverPrivateKeyUint8Array).secretKey
+function decrypt(receiverPrivateKey: string, encryptedDataHex: string): string {
+    const hexFixedData = encryptedDataHex.replace(/^0x/, '');
+    const asciiPayload = hexify(hexFixedData)
+	const jsonPayload: EncryptedData = JSON.parse(asciiPayload)
 
-    const nonce = util.decodeBase64(encryptedData.nonce);
-    const ciphertext = util.decodeBase64(encryptedData.ciphertext);
-    const ephemPublicKey = util.decodeBase64(encryptedData.ephemPublicKey);
+	if (
+		jsonPayload &&
+		jsonPayload.version === ETH_ENCRYPTION_ALGORITHM_VERSION &&
+		jsonPayload.nonce &&
+		jsonPayload.ephemPublicKey &&
+		jsonPayload.ciphertext
+	) {
+        const recieverPrivateKeyUint8Array = fromHexString(receiverPrivateKey)
+        const recieverEncryptionPrivateKey = nacl.box.keyPair.fromSecretKey(recieverPrivateKeyUint8Array).secretKey
 
-    const decryptedMessage = nacl.box.open(ciphertext, nonce, ephemPublicKey, recieverEncryptionPrivateKey);
+        const nonce = util.decodeBase64(jsonPayload.nonce);
+        const ciphertext = util.decodeBase64(jsonPayload.ciphertext);
+        const ephemPublicKey = util.decodeBase64(jsonPayload.ephemPublicKey);
 
-    let output;
-    try {
-        output = util.encodeUTF8(decryptedMessage);
-    } catch(err) {
-        throw new Error('Decryption failed.')
-    }
+        const decryptedMessage = nacl.box.open(ciphertext, nonce, ephemPublicKey, recieverEncryptionPrivateKey);
 
-    if (output) {
-        return output;
+        let output;
+        try {
+            output = util.encodeUTF8(decryptedMessage);
+        } catch(err) {
+            throw new Error('Decryption failed.')
+        }
+
+        if (output) {
+            return output;
+        } else {
+            throw new Error('Decryption failed.')
+        }
     } else {
         throw new Error('Decryption failed.')
     }
@@ -134,6 +159,7 @@ export default {
     getPublicEncryptionKey,
     generateRandomNonce,
     fromHexString,
+    hexify,
     nacl: {
         decodeUTF8: util.decodeUTF8,
         decodeBase64: util.decodeBase64,
