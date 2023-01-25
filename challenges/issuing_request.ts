@@ -1,7 +1,7 @@
 import { Owner, Issuer } from "../types";
 import moment from "moment";
-import Wallets from "../wallets";
 import Resources from "../resources/index";
+import { Chains } from "..";
 
 export function GetIssuingRequest(
   specs: string,
@@ -13,8 +13,8 @@ export function GetIssuingRequest(
     throw Error("Resource not supported");
   }
 
-  if (Wallets.IsSupported(owner.wallet) === false) {
-    throw Error("Wallet not supported");
+  if (Chains.IsSupported(owner.chain) === false) {
+    throw Error("Chain not supported");
   }
 
   const message = {
@@ -25,7 +25,6 @@ export function GetIssuingRequest(
     owner: {
       id: `anima:owner:${owner.public_address}`,
       chain: owner.chain,
-      wallet: owner.wallet,
       public_address: owner.public_address
     },
     issuer: {

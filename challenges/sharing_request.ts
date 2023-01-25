@@ -1,8 +1,8 @@
 import { Owner, Verifier } from "../types";
 import moment from "moment";
-import Wallets from "../wallets";
 import Resources from "../resources/index";
 import { Attribute } from "../types";
+import { Chains } from "..";
 
 function IsInResourceAttributes(
   resourceAttributes: Attribute[],
@@ -24,8 +24,8 @@ export function GetSharingRequest(
   owner: Owner,
   verifier: Verifier
 ): string {
-  if (Wallets.IsSupported(owner.wallet) === false) {
-    throw Error("Wallet not supported");
+  if (Chains.IsSupported(owner.chain) === false) {
+    throw Error("Chain not supported");
   }
 
   const message = {
@@ -36,7 +36,6 @@ export function GetSharingRequest(
       id: `anima:owner:${owner.public_address}`,
       public_address: owner.public_address,
       chain: owner.chain,
-      wallet: owner.wallet,
     },
     verifier: {
       id: verifier.id,
