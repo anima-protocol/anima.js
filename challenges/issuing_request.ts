@@ -1,7 +1,7 @@
 import { Owner, Issuer } from "../types";
 import moment from "moment";
 import Resources from "../resources/index";
-import { Chains } from "..";
+import Chains from "../chains";
 
 export function GetIssuingRequest(
   specs: string,

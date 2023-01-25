@@ -1,8 +1,7 @@
 import { Owner, Verifier } from "../types";
 import moment from "moment";
-import Resources from "../resources/index";
 import { Attribute } from "../types";
-import { Chains } from "..";
+import Chains from "../chains";
 
 function IsInResourceAttributes(
   resourceAttributes: Attribute[],

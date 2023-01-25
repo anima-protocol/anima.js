@@ -1,6 +1,6 @@
 import moment from "moment";
 import Resources from "../resources/index";
-import { Chains } from "..";
+import Chains from "../chains";
 export function GetIssuingRequest(specs, fields, owner, issuer) {
     if (Resources.IsSupported(specs) === false) {
         throw Error("Resource not supported");
