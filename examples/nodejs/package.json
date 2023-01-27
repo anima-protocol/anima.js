@@ -1,0 +1,12 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "NodeJS example of the anima protocol",
+  "main": "index.js",
+  "repository": "github.com/anima-protocol/anima.js/examples/nodejs",
+  "author": "Anima",
+  "license": "MIT",
+  "dependencies": {
+    "@anima-protocol/anima": "^0.1.1"
+  }
+}
