@@ -6,10 +6,13 @@ const AnimaChains: { [key: string]: boolean } = {
   [ELROND_NAME]: true,
 };
 
-const EVMChain = [EVM_NAME, ELROND_NAME]
+export const EVMChain = [EVM_NAME, ELROND_NAME];
 
-function IsSupported(chain: string): boolean {
+export function IsSupported(chain: string): boolean {
   return AnimaChains[chain];
 }
 
-export default { EVMChain, IsSupported };
+export default {
+  IsSupported,
+  EVMChain,
+};

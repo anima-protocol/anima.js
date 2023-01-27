@@ -1,5 +1,4 @@
 import { Owner, Verifier } from "../types";
-import moment from "moment";
 import { Attribute } from "../types";
 import Chains from "../chains";
 
@@ -27,9 +26,11 @@ export function GetSharingRequest(
     throw Error("Chain not supported");
   }
 
+  const shared_at = Math.floor(new Date().getTime() / 1000);
+
   const message = {
-    specs: specs,
-    shared_at: moment().utc().unix(),
+    specs,
+    shared_at,
     attributes,
     owner: {
       id: `anima:owner:${owner.public_address}`,

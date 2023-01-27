@@ -12,8 +12,14 @@ import {
   ResidentPermitAttributes,
   ResidentPermitIssuingRequestFields,
 } from "./resident_permit";
-import {LivenessEIP712Attributes, LivenessEIP712IssuingRequestFields} from "./liveness_eip712";
-import {LivenessEIP1024Attributes, LivenessEIP1024IssuingRequestFields} from "./liveness_eip1024";
+import {
+  LivenessEIP712Attributes,
+  LivenessEIP712IssuingRequestFields,
+} from "./liveness_eip712";
+import {
+  LivenessEIP1024Attributes,
+  LivenessEIP1024IssuingRequestFields,
+} from "./liveness_eip1024";
 
 /* Anima Resources */
 const PASSPORT = "anima:schema:document/passport@1.0.0";
@@ -60,18 +66,18 @@ const IssuingResourceAttributes = (key: string) => {
   const result: any = {};
   ResourceAttributes[key].forEach((attribute) => {
     result[attribute.name] = true;
-  })
+  });
   return result;
-}
+};
 
 const IssuingResourceAttributesTypes = (key: string) => {
   return ResourceAttributes[key].map((attribute) => {
     return {
       name: attribute.name,
-      type: "bool"
-    }
-  })
-}
+      type: "bool",
+    };
+  });
+};
 
 export default {
   PASSPORT,
@@ -84,5 +90,5 @@ export default {
   IssuingRequestFields,
   ResourceAttributes,
   IssuingResourceAttributes,
-  IssuingResourceAttributesTypes
+  IssuingResourceAttributesTypes,
 };

@@ -1,21 +1,50 @@
 {
-  "name": "anima.js",
+  "name": "@anima-protocol/anima",
+  "version": "0.1.1",
+  "description": "Anima.js is a JavaScript library for interacting with the Anima Protocol.",
+  "main": "index.js",
+  "module": "esm/index.mjs",
+  "types": "index.d.ts",
   "type": "module",
-  "version": "1.0.0",
-  "main": "dist/index.js",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "exports": {
+    "./*": {
+      "import": {
+        "types": "./esm/*.d.mts",
+        "default": "./esm/*.mjs"
+      },
+      "types": "./*.d.ts",
+      "default": "./*.cjs",
+      "require": {
+        "types": "./*.d.ts",
+        "default": "./*.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "**"
+  ],
   "repository": "git@github.com:anima-protocol/anima.js.git",
   "author": "Riwan <43223332+riwanl8@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf dist; tsc"
+    "build": "rm -rf dist; concurrently -m 8 'yarn:build:*'; cp package.json dist/package.json",
+    "build:challenges": "rollup -c --config-challenges",
+    "build:chains": "rollup -c --config-chains",
+    "build:types": "rollup -c --config-types",
+    "build:resources": "rollup -c --config-resources"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.16.5",
-    "@babel/plugin-proposal-object-rest-spread": "^7.16.5",
-    "@babel/preset-typescript": "^7.16.5",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "concurrently": "^7.6.0",
+    "esbuild": "^0.17.0",
+    "rollup": "^3.10.0",
+    "rollup-plugin-dts": "^5.1.1",
+    "rollup-plugin-esbuild": "^5.0.0",
     "typescript": "^4.5.4"
   },
-  "dependencies": {
-    "moment": "^2.29.1"
-  }
+  "dependencies": {}
 }

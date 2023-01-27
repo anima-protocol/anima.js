@@ -1,5 +1,4 @@
 import { Owner, Issuer } from "../types";
-import moment from "moment";
 import Resources from "../resources/index";
 import Chains from "../chains";
 
@@ -17,15 +16,17 @@ export function GetIssuingRequest(
     throw Error("Chain not supported");
   }
 
+  const requested_at = Math.floor(new Date().getTime() / 1000);
+
   const message = {
-    specs: specs,
-    requested_at: moment().utc().unix(),
+    specs,
+    requested_at,
     fields,
     attributes: Resources.IssuingResourceAttributes(specs),
     owner: {
       id: `anima:owner:${owner.public_address}`,
       chain: owner.chain,
-      public_address: owner.public_address
+      public_address: owner.public_address,
     },
     issuer: {
       public_address: issuer.public_address,
@@ -35,7 +36,8 @@ export function GetIssuingRequest(
   };
 
   if (owner?.public_key_encryption) {
-    (message.owner as Owner).public_key_encryption = owner.public_key_encryption
+    (message.owner as Owner).public_key_encryption =
+      owner.public_key_encryption;
   }
 
   return JSON.stringify(message);
