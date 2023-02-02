@@ -1,6 +1,5 @@
 import moment from "moment";
-import Chains from "../chains";
-import Ethereum from "../chains/ethereum/index";
+import { Chains } from "..";
 function IsInResourceAttributes(resourceAttributes, slug) {
     let found = false;
     resourceAttributes.forEach((attr) => {
@@ -11,7 +10,7 @@ function IsInResourceAttributes(resourceAttributes, slug) {
     });
     return found;
 }
-export function GetSharingRequest(specs, attributes, owner, verifier, chainId, addressType = "address") {
+export function GetSharingRequest(specs, attributes, owner, verifier) {
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
     }
@@ -30,12 +29,5 @@ export function GetSharingRequest(specs, attributes, owner, verifier, chainId, a
             chain: verifier.chain,
         },
     };
-    let challenge = {};
-    if (Chains.EVMChain.indexOf(owner.chain) !== -1) {
-        challenge = Ethereum.SharingRequest(message, chainId, attributes, addressType);
-    }
-    else {
-        throw "Unable to get sharing request";
-    }
-    return JSON.stringify(challenge);
+    return JSON.stringify(message);
 }
