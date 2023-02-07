@@ -1,20 +1,22 @@
 import moment from "moment";
 import Resources from "../resources/index";
 import { Chains } from "..";
-export function GetIssuingRequest(specs, fields, owner, issuer) {
+export function GetIssuingRequest(specs, fields, owner, issuer, publicKeyEncryption, nonce) {
     if (Resources.IsSupported(specs) === false) {
         throw Error("Resource not supported");
     }
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
     }
-    var message = {
+    const message = {
         specs: specs,
         requested_at: moment().utc().unix(),
-        fields: fields,
+        public_key_encryption: publicKeyEncryption,
+        nonce: nonce,
+        fields,
         attributes: Resources.IssuingResourceAttributes(specs),
         owner: {
-            id: "anima:owner:".concat(owner.public_address),
+            id: `anima:owner:${owner.public_address}`,
             chain: owner.chain,
             public_address: owner.public_address
         },
@@ -24,8 +26,5 @@ export function GetIssuingRequest(specs, fields, owner, issuer) {
             id: issuer.id,
         },
     };
-    if (owner === null || owner === void 0 ? void 0 : owner.public_key_encryption) {
-        message.owner.public_key_encryption = owner.public_key_encryption;
-    }
     return JSON.stringify(message);
 }

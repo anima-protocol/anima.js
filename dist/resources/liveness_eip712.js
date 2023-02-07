@@ -1,10 +1,10 @@
-export var LivenessEIP712IssuingRequestFields = [
+export const LivenessEIP712IssuingRequestFields = [
     {
         name: "facegraph",
         type: "string",
     }
 ];
-export var LivenessEIP712Attributes = [
+export const LivenessEIP712Attributes = [
     {
         name: "facegraph",
         type: "string",

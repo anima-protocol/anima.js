@@ -1,10 +1,10 @@
-export var PassportIssuingRequestFields = [
+export const PassportIssuingRequestFields = [
     {
         name: "original_passport_page",
         type: "string",
     },
 ];
-export var PassportAttributes = [
+export const PassportAttributes = [
     {
         name: "firstname",
         type: "string",

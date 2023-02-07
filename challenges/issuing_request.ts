@@ -4,10 +4,12 @@ import Resources from "../resources/index";
 import { Chains } from "..";
 
 export function GetIssuingRequest(
-  specs: string,
-  fields: any,
-  owner: Owner,
-  issuer: Issuer
+    specs: string,
+    fields: any,
+    owner: Owner,
+    issuer: Issuer,
+    publicKeyEncryption: string,
+    nonce: string,
 ) {
   if (Resources.IsSupported(specs) === false) {
     throw Error("Resource not supported");
@@ -20,6 +22,8 @@ export function GetIssuingRequest(
   const message = {
     specs: specs,
     requested_at: moment().utc().unix(),
+    public_key_encryption: publicKeyEncryption,
+    nonce: nonce,
     fields,
     attributes: Resources.IssuingResourceAttributes(specs),
     owner: {
@@ -33,10 +37,6 @@ export function GetIssuingRequest(
       id: issuer.id,
     },
   };
-
-  if (owner?.public_key_encryption) {
-    (message.owner as Owner).public_key_encryption = owner.public_key_encryption
-  }
 
   return JSON.stringify(message);
 }

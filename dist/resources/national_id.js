@@ -1,4 +1,4 @@
-export var NationalIdIssuingRequestFields = [
+export const NationalIdIssuingRequestFields = [
     {
         name: "original_document_front",
         type: "string",
@@ -8,7 +8,7 @@ export var NationalIdIssuingRequestFields = [
         type: "string",
     },
 ];
-export var NationalIdAttributes = [
+export const NationalIdAttributes = [
     {
         name: "firstname",
         type: "string",
