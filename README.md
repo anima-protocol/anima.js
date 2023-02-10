@@ -34,9 +34,9 @@ yarn add @anima-protocol/anima
 Creating an issuing request is as simple as:
 
 ```ts
-import { GetIssuingRequest } from "@anima-protocol/anima/challenges";
+import { Challenges } from "@anima-protocol/anima";
 
-const challenge = GetIssuingRequest(
+const challenge = Challenges.GetIssuingRequest(
   "anima:schema:your-schema-id",
   // The fields you want to issue
   {
