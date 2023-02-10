@@ -1,5 +1,5 @@
 import moment from "moment";
-import { Chains } from "..";
+import Chains from "../chains";
 function IsInResourceAttributes(resourceAttributes, slug) {
     let found = false;
     resourceAttributes.forEach((attr) => {
