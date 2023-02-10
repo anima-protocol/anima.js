@@ -1,8 +1,8 @@
 import moment from "moment";
 import Chains from "../chains";
 function IsInResourceAttributes(resourceAttributes, slug) {
-    var found = false;
-    resourceAttributes.forEach(function (attr) {
+    let found = false;
+    resourceAttributes.forEach((attr) => {
         if (attr.name === slug) {
             found = true;
             return;
@@ -14,12 +14,12 @@ export function GetSharingRequest(specs, attributes, owner, verifier) {
     if (Chains.IsSupported(owner.chain) === false) {
         throw Error("Chain not supported");
     }
-    var message = {
+    const message = {
         specs: specs,
         shared_at: moment().utc().unix(),
-        attributes: attributes,
+        attributes,
         owner: {
-            id: "anima:owner:".concat(owner.public_address),
+            id: `anima:owner:${owner.public_address}`,
             public_address: owner.public_address,
             chain: owner.chain,
         },

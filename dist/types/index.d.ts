@@ -2,7 +2,6 @@ interface Owner {
     id: string;
     chain: string;
     public_address: string;
-    public_key_encryption?: string;
 }
 interface Issuer {
     id: string;

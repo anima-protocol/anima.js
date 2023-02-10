@@ -1,4 +1,4 @@
-export var ResidentPermitIssuingRequestFields = [
+export const ResidentPermitIssuingRequestFields = [
     {
         name: "original_document_front",
         type: "string",
@@ -8,7 +8,7 @@ export var ResidentPermitIssuingRequestFields = [
         type: "string",
     },
 ];
-export var ResidentPermitAttributes = [
+export const ResidentPermitAttributes = [
     {
         name: "firstname",
         type: "string",
