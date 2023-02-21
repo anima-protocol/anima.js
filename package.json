@@ -1,8 +1,24 @@
 {
-  "name": "anima.js",
+  "name": "@anima-protocol/anima",
+  "version": "0.1.3",
+  "description": "Anima.js is a JavaScript library for interacting with the Anima Protocol.",
+  "module": "dist/index.js",
+  "browser": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
-  "version": "1.0.0",
-  "main": "dist/index.js",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
   "repository": "git@github.com:anima-protocol/anima.js.git",
   "author": "Riwan <43223332+riwanl8@users.noreply.github.com>",
   "license": "MIT",
@@ -10,13 +26,15 @@
     "build": "rm -rf dist; tsc"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.16.5",
-    "@babel/plugin-proposal-object-rest-spread": "^7.16.5",
-    "@babel/preset-typescript": "^7.16.5",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "concurrently": "^7.6.0",
+    "esbuild": "^0.17.0",
+    "rollup": "^3.10.0",
+    "rollup-plugin-dts": "^5.1.1",
+    "rollup-plugin-esbuild": "^5.0.0",
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "moment": "^2.29.1",
     "tweetnacl": "^1.0.3",
     "tweetnacl-util": "^0.15.1"
   }
