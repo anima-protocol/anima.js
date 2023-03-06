@@ -28,6 +28,7 @@ const DRIVER_LICENSE = "anima:schema:document/driver_license@1.0.0";
 const RESIDENT_PERMIT = "anima:schema:document/resident_permit@1.0.0";
 const LIVENESS_EIP1024 = "anima:schema:document/liveness@1.0.0";
 const LIVENESS_EIP712 = "anima:schema:pop@1.0.0";
+const CREATE_ANIMA = "anima:schema:create/anima@1.0.0";
 
 /* Anima Supported Resources */
 const AnimaResources: { [key: string]: boolean } = {
@@ -37,6 +38,7 @@ const AnimaResources: { [key: string]: boolean } = {
   RESIDENT_PERMIT: true,
   LIVENESS_EIP1024: true,
   LIVENESS_EIP712: true,
+  CREATE_ANIMA: true,
 };
 
 function IsSupported(resource: string): boolean {
