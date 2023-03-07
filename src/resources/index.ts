@@ -88,6 +88,7 @@ export default {
   RESIDENT_PERMIT,
   LIVENESS_EIP712,
   LIVENESS_EIP1024,
+  CREATE_ANIMA,
   IsSupported,
   IssuingRequestFields,
   ResourceAttributes,
