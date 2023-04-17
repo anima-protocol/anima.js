@@ -1,6 +1,6 @@
 {
   "name": "@anima-protocol/anima",
-  "version": "0.1.4-rc2",
+  "version": "0.1.5",
   "description": "Anima.js is a JavaScript library for interacting with the Anima Protocol.",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
