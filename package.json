@@ -1,6 +1,6 @@
 {
   "name": "@anima-protocol/anima",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "description": "Anima.js is a JavaScript library for interacting with the Anima Protocol.",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
@@ -17,6 +17,7 @@
   "files": [
     "dist"
   ],
+  "sideEffects": false,
   "repository": "git@github.com:anima-protocol/anima.js.git",
   "author": "Riwan <43223332+riwanl8@users.noreply.github.com>",
   "license": "MIT",
